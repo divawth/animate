@@ -1,0 +1,3 @@
+PIXI 是全局变量
+
+autoDetectRenderer
