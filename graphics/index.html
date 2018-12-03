@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Graphics</title>
+</head>
+<body>
+  <script src="https://pixijs.download/v4.8.2/pixi.min.js"></script>
+  <script>
+    var app = new PIXI.Application(800, 600, { antialias: true });
+    document.body.appendChild(app.view);
+
+    var graphics = new PIXI.Graphics();
+
+    graphics.beginFill();
+    graphics.lineStyle(4, 0xFF3300, 10);
+
+    graphics.moveTo(50,50);
+    graphics.lineTo(250, 50);
+    graphics.lineTo(100, 100);
+    graphics.lineTo(50, 50);
+    graphics.endFill();
+
+    graphics.beginFill();
+    graphics.drawRect(50, 250, 120, 120); 
+    graphics.endFill();
+
+    graphics.beginFill();
+    graphics.drawRoundedRect(150, 450, 300, 100, 15);
+    graphics.endFill();
+
+    graphics.beginFill();
+    graphics.drawCircle(470, 90, 60);
+    graphics.endFill();
+
+    app.stage.addChild(graphics);
+  </script>
+</body>
+</html>

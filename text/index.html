@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://pixijs.download/v4.8.2/pixi.min.js"></script>
+  <script>
+    var app = new PIXI.Application(800, 600, {backgroundColor: 0x1099bb});
+    document.body.appendChild(app.view);
+
+    var text = new PIXI.Text('Hello World! Diva and Jerry');
+    text.x = 12;
+    text.y = 12;
+    app.stage.addChild(text);
+
+    var style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      fontStyle: 'italic',
+      fontWeight: 'bold',
+      fill: ['#ffffff', '#00ff99'], // gradient
+      stroke: '#4a1850',
+      strokeThickness: 5,
+      dropShadow: true,
+      dropShadowAngle: Math.PI / 6,
+      dropShadowColor: '#000000',
+      dropShadowBlur: 4,
+      dropShadowDistance: 6,
+      wordWrap: true,
+      wordWrapWidth: 440
+    });
+    var richText = new PIXI.Text('Hello World! Diva and Jerry', style);
+    richText.x = 30;
+    richText.y = 100;
+    app.stage.addChild(richText);
+  </script>
+</body>
+</html>
