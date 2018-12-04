@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://pixijs.download/v4.8.2/pixi.min.js"></script>
+  <script>
+    var app = new PIXI.Application();
+    document.body.appendChild(app.view);
+
+    var trailTexture = PIXI.Texture.fromImage('../assets/trail.png');
+    var ropeSize = 20;
+    var points = [];
+        
+    for(var i = 0; i < ropeSize; i++)
+    {
+      points.push(new PIXI.Point(0, 0));
+    }
+
+    var rope = new PIXI.mesh.Rope(trailTexture, points);
+    rope.blendmode = PIXI.BLEND_MODES.ADD;
+    app.stage.addChild(rope);
+    
+    let mousePoints = [];
+    app.ticker.add(function(delta) {
+      var mouseposition = app.renderer.plugins.interaction.mouse.global;
+      mousePoints.unshift({
+        x: mouseposition.x,
+        y: mouseposition.y
+      });
+      mousePoints = mousePoints.slice(0, 20);
+      for(var i = 0; i < mousePoints.length - 1; i++) {
+        var point = points[i];
+        point.x = mousePoints[i].x;
+        point.y = mousePoints[i].y;
+      }
+    });
+    app.renderer.plugins.interaction.cursorStyles.default = '../assets/logo.png'
+    console.log(app.renderer.plugins.interaction.cursorStyles.default)
+  </script>
+</body>
+</html>

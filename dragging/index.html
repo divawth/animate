@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://pixijs.download/v4.8.2/pixi.min.js"></script>
+  <script>
+    var app = new PIXI.Application();
+    document.body.appendChild(app.view);
+    var sprit = PIXI.Sprite.fromImage('../assets/loader.png');
+    sprit.interactive = true;
+    sprit.buttonMode = true;
+    sprit.anchor.set(0.5);
+    let dragging = false;
+    sprit.on('pointerdown', function () {
+      if (!dragging) {
+        dragging = true;
+      }
+    });
+    sprit.on('pointerup', function () {
+      if (dragging) {
+        dragging = false;
+      }
+    });
+    sprit.on('pointermove', function (event) {
+      if (!dragging) {
+        return;
+      }
+      let data = event.data.originalEvent;
+      sprit.x = data.pageX;
+      sprit.y = data.pageY;
+    });
+    
+    sprit.x = app.screen.width / 2;
+    sprit.y = app.screen.height / 2;
+    app.stage.addChild(sprit);
+  </script>
+</body>
+</html>

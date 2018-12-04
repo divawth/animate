@@ -32,10 +32,51 @@
       wordWrap: true,
       wordWrapWidth: 440
     });
+
     var richText = new PIXI.Text('Hello World! Diva and Jerry', style);
     richText.x = 30;
     richText.y = 100;
     app.stage.addChild(richText);
+
+    var text = new PIXI.Text('I am fun!!!', style);
+    text.x = 400;
+    text.y = 400;
+    text.anchor.set(0.5);
+    app.stage.addChild(text);
+
+    var rect = new PIXI.Graphics();
+    rect.beginFill();
+    rect.drawRect(40, 400, 100, 40); 
+    rect.endFill();
+    var rotationButton = new PIXI.Text('rotation', {
+      backgroundColor: '#ff9900',
+      fill: '#ffffff'
+    });
+    rotationButton.x = 40;
+    rotationButton.y = 400;
+    rect.addChild(rotationButton); 
+    app.stage.addChild(rect);
+
+    rect.interactive = true;
+    rect.buttonMode = true;
+
+    let flag = false;
+    rect.on('pointerdown', function () {
+      flag = !flag;
+      if (flag) {
+        rotationButton.text = 'stop'
+        app.ticker.add(rotate);
+      }
+      else {
+        rotationButton.text = 'rotate'
+        app.ticker.remove(rotate);
+      }
+    });
+
+    function rotate (delta) {
+      text.rotation += 0.03;
+    }
+  
   </script>
 </body>
 </html>
