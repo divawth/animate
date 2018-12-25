@@ -2,30 +2,30 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // headerImage: {
-        //     default: null,
-        //     type: cc.Sprite
-        // },
-        // headerImageDesc: {
-        //     default: null,
-        //     type: cc.Node
-        // },
-        // title: {
-        //     default: '',
-        //     type: cc.String
-        // },
-        // content: {
-        //     default: '',
-        //     type: cc.String
-        // },
-        // okButton: {
-        //     default: null,
-        //     type: cc.Node
-        // },
-        // cancelButton: {
-        //     default: null,
-        //     type: cc.Node
-        // }
+        headerImage: {
+            default: null,
+            type: cc.Sprite
+        },
+        headerImageDesc: {
+            default: null,
+            type: cc.Node
+        },
+        title: {
+            default: '',
+            type: cc.String
+        },
+        content: {
+            default: '',
+            type: cc.String
+        },
+        okButton: {
+            default: null,
+            type: cc.Node
+        },
+        cancelButton: {
+            default: null,
+            type: cc.Node
+        }
     },
     onLoad () {
         // let me = this;

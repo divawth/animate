@@ -1,0 +1,130 @@
+
+syntax = "proto3"; // protobuf语法有 proto2 和 proto3两种，这里指定 proto3
+
+package kStar.message;
+
+message MyProtocolBean {
+  int32 type = 1; // 返回内容类型
+  int32 flag = 2; // 信息标志  0：心跳包  1：业务数据包
+  int32 length = 3; // 内容长度
+  bytes content = 4; // 内容
+}
+
+// 请求信息  type=1
+message RequestMsg {
+  string command = 1; // 请求的接口
+  string userId = 2;
+  string userName = 3;
+  string zone = 4;
+  int32 code = 5;
+}
+
+// 首页信息的返回结果 type=2
+message HomeUserInfoMsg {
+  string command = 1;
+  int32 id = 2;            // 主键
+  string userId = 3;       // 用户Id
+  int32 factoryLevel = 4;     // 工厂等级
+  int32 factoryCatogory = 5;  // 当前工厂级别下的充能能量
+  int32 catogoryPool = 6;     // 当前能量槽能量
+  int64 protectTime = 7;      // 保护罩结束时间
+  int32 producePromotion = 8; // 产能加成
+  int64 promotionEndTime = 9; // 产能加成结束时间
+  int32 robNumRemain = 10;    // 剩余掠夺次数
+  int32 exploreNumRemain = 11;// 剩余探索次数
+  string myGift = 12;         // 我的神器Id set
+  int32 catogoryBall = 13;    // 能量球
+  int32 catogoryPoolCapacity = 14;// 能量槽容量
+  string userName = 15;
+}
+
+// 数量信息返回结果 type=3
+message IntMsg {
+  string command = 1;
+  int32 count = 2;
+  string msg = 3;
+}
+
+// 成败信息返回结果 type=4
+message BooleanMsg {
+  string command = 1;
+  bool result = 2;
+  string msg = 3;
+}
+
+// 用户工厂信息 type=5
+message UserFactoryInfoMsg {
+  string command = 1;
+  int32 catogoryPool = 2;         // 当前能量槽能量
+  int32 catogoryPoolCapacity = 3; // 能量槽容量
+  int32 factoryCatogory = 4;      // 当前工厂级别下的充能能量
+  FactoryMsg factory = 5;         // 当前工厂信息
+}
+
+// 工厂信息表 type=6
+message FactoryMsg {
+  string command = 1;
+  int32 level = 2;        // 工厂等级
+  int32 production = 3;   // 工厂产能
+  int32 capacity = 4;     // 工厂储量
+  int32 exchangeRate = 5; // 兑换率
+  int32 upgradeNeedCatogory = 6;  // 升级所需能量
+}
+
+// 全部工厂信息 type=7
+message FactoryList {
+  string command = 1;
+  map<int32, FactoryMsg> factorymap = 2;
+}
+
+// 我的背包 type=8
+message MyPackageMsg {
+  string command = 1;
+  repeated PropMsg gifts = 2;         // 我的神器
+  repeated PropMsg consumables = 3;   // 我的消耗品
+}
+
+// 道具 type=9
+message PropMsg {
+  string command = 1;
+  string name = 2;    // 道具名
+  int32 code = 3;     // 道具代码
+  int32 type = 4;     // 道具类型{ 0 无奖; 1 普通消耗品; 2 神器}
+  string desc = 5;    // 道具描述
+  string icon = 6;    // 道具图标
+  int32 count = 7;    // 道具数量
+}
+
+// 任务列表页面 type=10
+message TaskPageMsg {
+  string command = 1;
+  repeated Task tasks = 2;
+}
+
+// 任务 type=11
+message Task {
+  int32 code = 1;
+  string requirement = 2;         // 任务要求
+  string award = 3;               // 奖励文案
+  TaskButtonMsg taskButton = 4;   // 未完成的button
+  bool canClick = 5;              // 是否可以点击button
+}
+
+// 任务按钮 type=12
+message TaskButtonMsg{
+  string text = 1;
+  string schema = 2;  // 按钮跳转链接
+}
+
+// 探索页面信息 type=13
+message ExplorePageMsg {
+  string command = 1;
+  int32 exploreNumRemain = 2; // 剩余探索次数
+  bool noTaskTodo = 3;        // 是否还有任务可做（无任务可做时，置灰"立即探索"btn）
+}
+
+// 道具列表 type=14
+message PropListMsg {
+  string command = 1;
+  repeated PropMsg propList = 2;  // 随机获取三件消耗品的消耗品列表
+}
