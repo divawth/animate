@@ -1,4 +1,4 @@
-const WebSocket = require('common/websocket');
+// const WebSocket = require('common/websocket');
 
 window.global = window;
 

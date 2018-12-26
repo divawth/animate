@@ -187,7 +187,7 @@
     "_skewY": 0,
     "_zIndex": 0,
     "groupIndex": 0,
-    "_id": "2ex0xKHCRIJrRrw+cSvEPr"
+    "_id": "84ay5FsYpNZYhb0tBJ52P7"
   },
   {
     "__type__": "cc.Camera",
@@ -209,7 +209,7 @@
     "_depth": -1,
     "_zoomRatio": 1,
     "_targetTexture": null,
-    "_id": "eeGqhsdaFJyrgjyU5wjUw0"
+    "_id": "7em9r35tpIF4RXljAV8ZiY"
   },
   {
     "__type__": "cc.Node",
@@ -728,19 +728,19 @@
       "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$disabledSprite": {
-      "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$target": {
       "__id__": 7
@@ -1158,19 +1158,19 @@
       "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$disabledSprite": {
-      "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$target": {
       "__id__": 18
@@ -1588,19 +1588,19 @@
       "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$disabledSprite": {
-      "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$target": {
       "__id__": 29
@@ -2018,19 +2018,19 @@
       "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$disabledSprite": {
-      "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
+      "__uuid__": "af665a6e-f7d5-420a-bfa1-1746bd644a9b"
     },
     "_N$target": {
       "__id__": 40
@@ -2127,7 +2127,7 @@
       "width": 750,
       "height": 120
     },
-    "_resize": 0,
+    "_resize": 1,
     "_N$layoutType": 1,
     "_N$padding": 0,
     "_N$cellSize": {
@@ -2156,9 +2156,9 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 44,
-    "_left": 0,
-    "_right": 0,
+    "_alignFlags": 20,
+    "_left": 275,
+    "_right": 275,
     "_top": 0,
     "_bottom": 75,
     "_verticalCenter": 0,

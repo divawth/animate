@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5441378801051852,
-      "y": 0.5441378801051852,
+      "x": 0.45952023988005997,
+      "y": 0.45952023988005997,
       "z": 1
     },
     "_quat": {
@@ -184,7 +184,7 @@
     "_skewY": 0,
     "_zIndex": 0,
     "groupIndex": 0,
-    "_id": "812WRqM21AEZyVGF+PJBbK"
+    "_id": "dbOQUS9MpASr8Hm9n+Kkz1"
   },
   {
     "__type__": "cc.Camera",
@@ -206,7 +206,7 @@
     "_depth": -1,
     "_zoomRatio": 1,
     "_targetTexture": null,
-    "_id": "a0H8d3EuFDk50AM0SDOTKi"
+    "_id": "2dX4BMUcRLNrRk1ZxFMV8g"
   },
   {
     "__type__": "cc.Node",
