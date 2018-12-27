@@ -1,5 +1,5 @@
 
-syntax = "proto3"; // protobuf语法有 proto2 和 proto3两种，这里指定 proto3
+syntax = "proto3"; // protobuf 语法有 proto2 和 proto3两种，这里指定 proto3
 
 package kStar.message;
 
