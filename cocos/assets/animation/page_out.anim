@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "page_out",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.16666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "x": [
+        {
+          "frame": 0,
+          "value": 0
+        },
+        {
+          "frame": 0.16666666666666666,
+          "value": 792
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 0.1,
+      "func": "",
+      "params": []
+    },
+    {
+      "frame": 0.16666666666666666,
+      "func": "",
+      "params": []
+    },
+    {
+      "frame": 0.16666666666666666,
+      "func": "",
+      "params": []
+    },
+    {
+      "frame": 0.16666666666666666,
+      "func": "",
+      "params": []
+    },
+    {
+      "frame": 0.16666666666666666,
+      "func": "",
+      "params": []
+    },
+    {
+      "frame": 0.16666666666666666,
+      "func": "",
+      "params": []
+    },
+    {
+      "frame": 0.16666666666666666,
+      "func": "",
+      "params": []
+    }
+  ]
+}

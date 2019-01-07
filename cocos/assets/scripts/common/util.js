@@ -117,3 +117,79 @@ exports.unSerializeData = function (data, callback) {
     }
   }
 };
+
+/**
+ * 是否是 pre 坏境
+ *
+ * @param {Object} options
+ *
+ */
+exports.isDev = function () {
+  let origin = location.origin;
+  return /pre/.test(origin) || /localhost/.test(origin);
+};
+
+/**
+ * 发送请求
+ *
+ * @param {Object} options
+ * @property {String} method 请求类型
+ * @property {String} url 请求链接
+ * @property {Object} data 请求数据
+ *
+ */
+exports.request = function (method, url, data) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest(data);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
+        var response = xhr.responseText;
+        try {
+          response = JSON.parse(response);
+          if (response.ok) {
+            resolve(response.data)
+          }
+        }
+        catch (e) {
+          reject(e, response)
+        }
+      }
+    };
+    xhr.open(method, url, true);
+    xhr.send();
+  });
+};
+
+/**
+ * 发送 get 请求
+ *
+ * @param {Object} options
+ * @property {String} method 请求类型
+ * @property {String} url 请求链接
+ * @property {Object} data 请求数据
+ *
+ */
+exports.get = function (url, data) {
+  if (data && Object.keys(data).length > 0) {
+    url += /\?/.test(url) ? '?' : '&';
+    for (let key in data) {
+      url += key + '=' + data[ key ];
+    }
+  }
+  return exports.request('GET', url);
+};
+
+
+/**
+ * 发送 post 请求
+ *
+ * @param {Object} options
+ * @property {String} method 请求类型
+ * @property {String} url 请求链接
+ * @property {Object} data 请求数据
+ *
+ */
+exports.post = function (url, data) {
+  return exports.request('POST', url, data);
+};
+

@@ -11,11 +11,11 @@ cc.Class({
             type: cc.Node
         },
         title: {
-            default: '',
+            default: ' ',
             type: cc.String
         },
         content: {
-            default: '',
+            default: ' ',
             type: cc.String
         },
         okButton: {
@@ -32,12 +32,12 @@ cc.Class({
         // let node = me.node;
         // node.setScale(2);
         // node.opacity = 0;
-        
+
         // let actionFadeOut = cc.spawn(
-        //     cc.fadeTo(0.3, 0), 
+        //     cc.fadeTo(0.3, 0),
         //     cc.scaleTo(0.3, 2.0)
         // );
-        
+
         // let finished = cc.callFunc(() => {
         //     me.node.removeFromParent(false);
         // }, this);
@@ -57,7 +57,7 @@ cc.Class({
         let scene = cc.director.getScene();
         this.node.parent = scene;
         let actionFadeIn =cc.spawn(
-            cc.fadeTo(0.3, 255), 
+            cc.fadeTo(0.3, 255),
             cc.scaleTo(0.3, 1.0)
         );
         this.node.runAction(actionFadeIn);

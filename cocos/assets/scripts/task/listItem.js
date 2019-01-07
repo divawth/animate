@@ -13,20 +13,20 @@ cc.Class({
 
     properties: {
         title: {
-            default: '',
-            type: String
+            default: ' ',
+            type: cc.String
         },
         subtitle: {
-            default: '',
-            type: String
+            default: ' ',
+            type: cc.String
         },
         buttonText: {
-            default: '',
-            type: String
+            default: ' ',
+            type: cc.String
         },
         schema: {
-            default: '',
-            type: String
+            default: ' ',
+            type: cc.String
         }
     }
 });

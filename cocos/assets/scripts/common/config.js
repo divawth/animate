@@ -4,12 +4,18 @@
  */
 
 /**
- * ws 链接地址
+ * ws 链接地址(pre)
  *
  * @type {number}
  */
-exports.WEBSOCKET_URL = 'ws://10.2.24.102:8080/glue/ws';
+exports.WEBSOCKET_URL_PRE = 'ws://api.pre.gotokeep.com:8080/glue/ws';
 
+/**
+ * ws 链接地址(线上)
+ *
+ * @type {number}
+ */
+exports.WEBSOCKET_URL = 'ws://api.gotokeep.com:8080/glue/ws';
 
 /**
  * ==============================================================

@@ -3,7 +3,7 @@
  * @author wangtianhua
  */
 
-const Emitter = require('./Emitter');
+const Emitter = require('./core/Emitter');
 
 exports.init = function () {
   window.$eventEmitter = new Emitter();

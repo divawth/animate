@@ -51,7 +51,6 @@ export default class WebSocket {
 
   connect (url) {
     let me = this;
-
     if (me.status === STATUS_OPEN
       || me.status === STATUS_CONNECTING
     ) {

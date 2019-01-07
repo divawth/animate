@@ -11,7 +11,7 @@ cc.Class({
 
   connectWs () {
     let me = this;
-    $webSocket.connect(config.WEBSOCKET_URL);
+    $webSocket.connect(config.WEBSOCKET_URL_PRE);
 
     $eventEmitter.on(
       eventEmitter.WEB_SOCKET_CONNECT_SUCCESS,
@@ -25,7 +25,20 @@ cc.Class({
     $webSocket.send(util.serializeData());
   },
 
+  getUserInfo () {
+    util.get('https://kapi.sre.gotokeep.com/mock/293/user/queryUser')
+    .then(function (response) {
+      if (response.exist) {
+        // TODO 用户存在
+      }
+      else {
+        // TODO 用户不存在
+      }
+    })
+  },
+
   init () {
+    this.getUserInfo();
     this.initProtoBufData();
     this.connectWs();
   },
