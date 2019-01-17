@@ -13,25 +13,25 @@ const config = require('./config');
  *
  */
 exports.serializeData = function (options) {
-  let data = new $protoBuf.RequestMsg();
-  data.command = 'transformPbBusiness/online';
-  data.userId = '5b978a95bf67dc651ea3e41d';
-  data.userName = '赵丹';
-  data.zone = 'Asia/Shangha';
-  data.code = 5;
 
-  console.log('>>>>>>>>', data);
-  data = data.encodeAB();
-  let dataLength = data.byteLength;
+  // let data = new $protoBuf.RequestMsg();
+  // data.command = options.command;
+  // data.userId = '5b978a95bf67dc651ea3e41d';
+  // data.userName = '赵丹';
+  // data.zone = 'Asia/Shangha';
+  // data.code = 5;
 
-  let request = new $protoBuf.MyProtocolBean();
-  request.type = 1;
-  request.flag = 1;
-  request.length = dataLength;
-  request.content = data;
-  request = request.encodeAB();
+  // data = data.encodeAB();
+  // let dataLength = data.byteLength;
 
-  return request;
+  // let request = new $protoBuf.MyProtocolBean();
+  // request.type = 1;
+  // request.flag = 1;
+  // request.length = dataLength;
+  // request.content = data;
+  // request = request.encodeAB();
+
+  // return request;
 };
 
 /**
@@ -62,18 +62,71 @@ exports.unSerializeData = function (data, callback) {
 
         case config.MESSAGE_TYPE_HOME:
           result = $protoBuf.HomeUserInfoMsg.decode(data.content);
+          if (result.command === config.COMMAND_QUERY_ROB_USER) {
+            $eventEmitter.trigger(
+              eventEmitter.PLUNDER_RES,
+              {
+                data: result
+              }
+            );
+          }
+          else if (result.command === config.COMMAND_QUERY_HOME_INFO) {
+            $eventEmitter.trigger(
+              eventEmitter.REQUEST_HOME_MESSAGE_RES,
+              {
+                data: result
+              }
+            );
+          }
           break;
 
         case config.MESSAGE_TYPE_COUNT:
           result = $protoBuf.IntMsg.decode(data.content);
+          if (result.command === config.COMMAND_EXCHANGE_CATOGORY_POINT) {
+            $eventEmitter.trigger(
+              eventEmitter.MOLTEN_CALORIE_COINS_RES,
+              {
+                data: result
+              }
+            );
+          }
           break;
 
         case config.MESSAGE_TYPE_SUCCESS:
           result = $protoBuf.BooleanMsg.decode(data.content);
+          if (result.command === config.COMMAND_APPLY_PROP) {
+            $eventEmitter.trigger(
+              eventEmitter.APPLY_PROP_RES,
+              {
+                data: result
+              }
+            );
+          }
+          else if (result.command === config.COMMAND_UPGRADE_FACTORY) {
+            $eventEmitter.trigger(
+              eventEmitter.APPLY_PROP_RES,
+              {
+                data: result
+              }
+            );
+          }
+          else if (result.command === config.COMMAND_TASK_DRAW) {
+            $eventEmitter.trigger(
+              eventEmitter.RECEIVE_TASK_REWARD_RES,
+              {
+                data: result
+              }
+            );
+          }
           break;
-
         case config.MESSAGE_TYPE_FACTORY_OTHER:
           result = $protoBuf.UserFactoryInfoMsg.decode(data.content);
+          $eventEmitter.trigger(
+            eventEmitter.SEARCH_MYFACTORY_PAGE_RES,
+            {
+              data: result
+            }
+          );
           break;
 
         case config.MESSAGE_TYPE_FACTORY_MY:
@@ -90,10 +143,22 @@ exports.unSerializeData = function (data, callback) {
 
         case config.MESSAGE_TYPE_TOOL:
           result = $protoBuf.PropMsg.decode(data.content);
+          $eventEmitter.trigger(
+            eventEmitter.MESSAGE_TYPE_EXPLORE_RES,
+            {
+              data: result
+            }
+          );
           break;
 
         case config.MESSAGE_TYPE_TASK_LIST:
           result = $protoBuf.TaskPageMsg.decode(data.content);
+          $eventEmitter.trigger(
+            eventEmitter.REQUEST_TASK_LIST_RES,
+            {
+              data: result
+            }
+          );
           break;
 
         case config.MESSAGE_TYPE_TASK:
@@ -104,15 +169,20 @@ exports.unSerializeData = function (data, callback) {
           result = $protoBuf.TaskButtonMsg.decode(data.content);
           break;
 
-        case config.MESSAGE_TYPE_EXPLORE:
+        case config.MESSAGE_TYPE_EXPLORE_PAGE:
           result = $protoBuf.ExplorePageMsg.decode(data.content);
+          $eventEmitter.trigger(
+            eventEmitter.REQUEST_SEARCH_PAGE_RES,
+            {
+              data: result
+            }
+          );
           break;
 
         case config.MESSAGE_TYPE_TOOL_LIST:
           result = $protoBuf.PropListMsg.decode(data.content);
           break;
       };
-      console.log('<<<<<<<<', result);
       callback(result);
     }
   }

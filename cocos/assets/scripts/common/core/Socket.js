@@ -73,7 +73,8 @@ export default class WebSocket {
         connectComplete(STATUS_OPEN);
       };
 
-      socket.onerror = function () {
+      socket.onerror = function (error) {
+        console.log(error)
         connectComplete(STATUS_ERROR);
       };
 
@@ -87,77 +88,87 @@ export default class WebSocket {
         );
       }
     };
-    me.status = STATUS_CONNECTING;
 
-    let nextConnect = function (url) {
+    let nextEnd = function () {
       if (me.interval > 0) {
-        setTimeout(connectServer, me.interval);
+        setTimeout(nextStart, me.interval);
       }
       else {
-        connectServer();
+        nextStart();
       }
     };
-    connectServer(url, function (socket, url, status) {
+
+    var nextStart = function () {
+
       if (me.status !== STATUS_CONNECTING) {
         return;
       }
 
-      if (status === STATUS_OPEN) {
-        me.url = url;
-        me.socket = socket;
-        me.status = STATUS_OPEN;
-
-        socket.onmessage = function (event) {
-          if (me.status === STATUS_OPEN) {
-            me.onReceive(
-              event.data
-            );
-          }
-
-        };
-        socket.onclose = function (event) {
-          if (me.status === STATUS_OPEN) {
-            if (me.connectOnClose) {
-              me.status = STATUS_NONE;
-              me.connect(url);
-            }
-            else if (me.onClose) {
-              me.onClose(event);
-            }
-          }
-        };
-        if (me.retryCount > 0) {
-          me.retryIndex = 0;
-        }
-        if (me.onOpen) {
-          me.onOpen({
-            url: url
-          });
-        }
-      }
-      else {
-        if (me.retryCount > 0
-          && me.retryIndex++ < me.retryCount
-        ) {
-          nextConnect(url);
+      connectServer(url, function (socket, url, status) {
+        if (me.status !== STATUS_CONNECTING) {
           return;
         }
-        switch (me.status = status) {
-          case STATUS_ERROR:
-            if (me.onError) {
-              me.onError();
+
+        if (status === STATUS_OPEN) {
+          me.url = url;
+          me.socket = socket;
+          me.status = STATUS_OPEN;
+
+          socket.onmessage = function (event) {
+            if (me.status === STATUS_OPEN) {
+              me.onReceive(
+                event.data
+              );
             }
-            break;
-          case STATUS_TIMEOUT:
-            if (me.onTimeout) {
-              me.onTimeout();
+          };
+          socket.onclose = function (event) {
+            if (me.status === STATUS_OPEN) {
+              if (me.connectOnClose) {
+                me.status = STATUS_NONE;
+                me.connect(url);
+              }
+              else if (me.onClose) {
+                me.onClose(event);
+              }
             }
-            break;
-          default:
-            nextConnect(url);
+          };
+          if (me.retryCount > 0) {
+            me.retryIndex = 0;
+          }
+
+          if (me.onOpen) {
+            me.onOpen({
+              url: url
+            });
+          }
         }
-      }
-    });
+        else {
+          if (me.retryCount > 0
+            && me.retryIndex++ < me.retryCount
+          ) {
+            nextEnd();
+            return;
+          }
+          switch (me.status = status) {
+            case STATUS_ERROR:
+              if (me.onError) {
+                me.onError();
+              }
+              break;
+            case STATUS_TIMEOUT:
+              if (me.onTimeout) {
+                me.onTimeout();
+              }
+              break;
+            default:
+              nextEnd();
+          }
+        }
+      });
+    };
+
+    me.status = STATUS_CONNECTING;
+    nextStart();
 
   }
 

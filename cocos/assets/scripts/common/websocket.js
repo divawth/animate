@@ -20,21 +20,25 @@ exports.init = function () {
       );
     },
     onOpen: function () {
+      console.log('open');
       $eventEmitter.trigger(
         eventEmitter.WEB_SOCKET_CONNECT_SUCCESS
       );
     },
     onClose: function () {
+      console.log('onClose');
       $eventEmitter.trigger(
         eventEmitter.WEB_SOCKET_CONNECT_CLOSE
       );
     },
     onError: function () {
+      console.log('onError');
       $eventEmitter.trigger(
         eventEmitter.WEB_SOCKET_CONNECT_ERROR
       );
     },
     onTimeout: function () {
+      console.log('onTimeout');
       $eventEmitter.trigger(
         eventEmitter.WEB_SOCKET_CONNECT_TIMEOUT
       );

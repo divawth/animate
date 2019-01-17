@@ -8,14 +8,14 @@
  *
  * @type {number}
  */
-exports.WEBSOCKET_URL_PRE = 'ws://api.pre.gotokeep.com:8080/glue/ws';
+exports.WEBSOCKET_URL_PRE = 'ws://api.pre.gotokeep.com/glue/ws';
 
 /**
  * ws 链接地址(线上)
  *
  * @type {number}
  */
-exports.WEBSOCKET_URL = 'ws://api.gotokeep.com:8080/glue/ws';
+exports.WEBSOCKET_URL = 'ws://api.gotokeep.com:7001';
 
 /**
  * ==============================================================
@@ -132,7 +132,7 @@ exports.MESSAGE_TYPE_TASK_BUTTON = 12;
  *
  * @type {number}
  */
-exports.MESSAGE_TYPE_EXPLORE = 13;
+exports.MESSAGE_TYPE_EXPLORE_PAGE = 13;
 
 /**
  * 道具列表
@@ -280,21 +280,46 @@ exports.COMMAND_TASK_DRAW = 'transformPbBusiness/taskDraw';
  */
 exports.COMMAND_CONSUMABLES_GET = 'transformPbBusiness/getThreeConsumables';
 
+/**
+ * 没有探索到神器
+ *
+ * @type {string}
+ */
+exports.PROP_TYPE_NOTHING = 0;
 
+/**
+ * 探索到消耗品
+ *
+ * @type {string}
+ */
+exports.PROP_TYPE_CONSUMABLES = 1;
 
-// module.exports = {
-//   MESSAGE_TYPE_REQUEST,
-//   MESSAGE_TYPE_HOME,
-//   MESSAGE_TYPE_COUNT,
-//   MESSAGE_TYPE_SUCCESS,
-//   MESSAGE_TYPE_FACTORY_OTHER,
-//   MESSAGE_TYPE_FACTORY_MY,
-//   MESSAGE_TYPE_FACTORY_ALL,
-//   MESSAGE_TYPE_PACKBACK,
-//   MESSAGE_TYPE_TOOL,
-//   MESSAGE_TYPE_TASK_LIST,
-//   MESSAGE_TYPE_TASK,
-//   MESSAGE_TYPE_TASK_BUTTON,
-//   MESSAGE_TYPE_EXPLORE,
-//   MESSAGE_TYPE_TOOL_LIST
-// };
+/**
+ * 探索到神器
+ *
+ * @type {string}
+ */
+exports.PROP_TYPE_ARTIFACT = 2;
+
+/**
+ * 神器对应的 code
+ *
+ * @type {string}
+ */
+exports.PROP_CODE_MAP = {
+  '1': 1,
+  '2': 2,
+  '3': 3,
+  '4': 4,
+};
+
+/**
+ * 能量值边界
+ *
+ * @type {string}
+ */
+exports.ENERGY_VALUE_BOUNDARY_MORE = 200;
+
+exports.ENERGY_VALUE_BOUNDARY_NORMAL = 100;
+
+exports.ENERGY_VALUE_BOUNDARY_LESS = 80;
